@@ -15,7 +15,7 @@ const About: React.FC = () => {
         <div className="flex flex-col md:flex-row items-center md:items-start gap-8 mb-12">
           <div className="w-32 h-32 md:w-40 md:h-40 flex-shrink-0 bg-gray-200 rounded-full overflow-hidden border-4 border-white shadow-md">
             <img 
-              src="/assets/projects/微信图片.png" 
+              src="/assets/projects/个人图片.png" 
               alt="Profile" 
               className="w-full h-full object-cover"
             />
@@ -24,7 +24,7 @@ const About: React.FC = () => {
             <h1 className="text-3xl font-bold text-gray-900 mb-2">卢泽雄</h1>
             <p className="text-lg text-blue-600 font-medium mb-4">视觉设计师 & 前端爱好者</p>
             <p className="text-gray-600 leading-relaxed max-w-2xl">
-              我是一名来自广东的大专生，对视觉设计和Web开发充满热情。
+              我是一名来自广东的学生，对视觉设计和Web开发充满热情。
               我喜欢创造美观且实用的东西，并享受将想法变为现实的过程。
             </p>
           </div>
