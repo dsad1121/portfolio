@@ -15,7 +15,7 @@ const About: React.FC = () => {
         <div className="flex flex-col md:flex-row items-center md:items-start gap-8 mb-12">
           <div className="w-32 h-32 md:w-40 md:h-40 flex-shrink-0 bg-gray-200 rounded-full overflow-hidden border-4 border-white shadow-md">
             <img 
-              src="/assets/projects/个人图片.png" 
+              src="/assets/projects/个人图片.jpg" 
               alt="Profile" 
               className="w-full h-full object-cover"
             />
