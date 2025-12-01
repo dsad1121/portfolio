@@ -11,18 +11,23 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
     <Link to={`/project/${project.id}`} className="group block break-inside-avoid mb-8">
       <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1">
-        {/* Thumbnail Container - Removed fixed aspect ratio for waterfall layout */}
         <div className="relative bg-gray-100 overflow-hidden">
-          <img
-            src={project.thumbnailUrl}
-            alt={project.title}
-            loading="lazy"
-            className="w-full h-auto transition-transform duration-500 group-hover:scale-105"
-          />
-          {project.mediaType === 'video' && (
-            <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors">
-              <PlayCircle className="text-white opacity-80 w-12 h-12" />
-            </div>
+          {project.mediaType === 'video' ? (
+            <video
+              src={project.thumbnailUrl}
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-auto transition-transform duration-500 group-hover:scale-105"
+            />
+          ) : (
+            <img
+              src={project.thumbnailUrl}
+              alt={project.title}
+              loading="lazy"
+              className="w-full h-auto transition-transform duration-500 group-hover:scale-105"
+            />
           )}
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
             <span className="text-white text-sm font-medium">查看详情</span>

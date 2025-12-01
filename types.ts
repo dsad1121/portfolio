@@ -6,7 +6,7 @@ export interface Project {
   category: Category;
   description: string;
   thumbnailUrl: string; // URL for the grid view
-  mediaUrl: string; // URL for the detail view (high res image or video)
+  mediaUrls: string[]; // URL(s) for the detail view (high res image or video)
   mediaType: 'image' | 'video'; // To decide how to render details
   tools: string[];
   date: string;

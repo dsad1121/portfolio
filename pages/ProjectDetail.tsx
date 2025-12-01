@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Calendar, PenTool, ChevronLeft, ChevronRight } from 'lucide-react';
 import { PROJECTS } from '../constants';
@@ -6,6 +6,7 @@ import { PROJECTS } from '../constants';
 const ProjectDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const [currentMediaIndex, setCurrentMediaIndex] = useState(0);
 
   const projectIndex = PROJECTS.findIndex(p => p.id === id);
   const project = PROJECTS[projectIndex];
@@ -27,6 +28,14 @@ const ProjectDetail: React.FC = () => {
     );
   }
 
+  const handlePrevMedia = () => {
+    setCurrentMediaIndex(prev => (prev > 0 ? prev - 1 : project.mediaUrls.length - 1));
+  };
+
+  const handleNextMedia = () => {
+    setCurrentMediaIndex(prev => (prev < project.mediaUrls.length - 1 ? prev + 1 : 0));
+  };
+
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
       {/* Back Button */}
@@ -47,23 +56,46 @@ const ProjectDetail: React.FC = () => {
       </div>
 
       {/* Main Media */}
-      <div className="bg-gray-100 rounded-xl overflow-hidden shadow-sm mb-10">
+      <div className="bg-gray-100 rounded-xl overflow-hidden shadow-sm mb-10 relative">
         {project.mediaType === 'video' ? (
           <video 
+            key={project.mediaUrls[currentMediaIndex]}
             controls 
             className="w-full h-auto aspect-video" 
             poster={project.thumbnailUrl}
             playsInline
           >
-            <source src={project.mediaUrl} type="video/mp4" />
+            <source src={project.mediaUrls[currentMediaIndex]} type={project.mediaUrls[currentMediaIndex].endsWith('.mp4') ? 'video/mp4' : 'video/quicktime'} />
             您的浏览器不支持 HTML5 视频播放。
           </video>
         ) : (
           <img 
-            src={project.mediaUrl} 
-            alt={project.title} 
+            src={project.mediaUrls[currentMediaIndex]} 
+            alt={`${project.title} - ${currentMediaIndex + 1}`} 
             className="w-full h-auto object-contain max-h-[80vh] bg-gray-50"
           />
+        )}
+
+        {project.mediaUrls.length > 1 && (
+          <>
+            <button 
+              onClick={handlePrevMedia}
+              className="absolute left-2 top-1/2 -translate-y-1/2 p-2 bg-black/30 text-white rounded-full hover:bg-black/50 transition-colors focus:outline-none"
+              aria-label="上一张"
+            >
+              <ChevronLeft size={24} />
+            </button>
+            <button 
+              onClick={handleNextMedia}
+              className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-black/30 text-white rounded-full hover:bg-black/50 transition-colors focus:outline-none"
+              aria-label="下一张"
+            >
+              <ChevronRight size={24} />
+            </button>
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/40 text-white text-xs rounded-full px-3 py-1">
+              {currentMediaIndex + 1} / {project.mediaUrls.length}
+            </div>
+          </>
         )}
       </div>
 
