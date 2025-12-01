@@ -57,7 +57,7 @@ const Contact: React.FC = () => {
            <Globe size={24} /> <span className="sr-only">Behance</span>
          </a>
          <a 
-            href="#" 
+            href="https://github.com/dsad1121" 
             className="text-gray-400 hover:text-gray-900 transition-colors"
           >
            <Github size={24} /> <span className="sr-only">GitHub</span>
