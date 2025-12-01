@@ -73,9 +73,9 @@ const Portfolio: React.FC = () => {
         ))}
       </div>
 
-      {/* Masonry Grid -> Changed to CSS Columns for waterfall layout */}
+      {/* Masonry Grid -> Changed to CSS Grid for consistent layout */}
       {filteredProjects.length > 0 ? (
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
