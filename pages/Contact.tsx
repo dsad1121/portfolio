@@ -30,9 +30,8 @@ const Contact: React.FC = () => {
           </div>
           <h3 className="text-lg font-bold text-gray-900 mb-2">微信联系</h3>
           <p className="text-gray-600 mb-2 text-sm">扫描或搜索 ID</p>
-          <div className="w-24 h-24 bg-gray-200 mb-2 flex items-center justify-center text-gray-400 text-xs">
-            {/* Placeholder for QR Code */}
-            二维码占位
+          <div className="w-32 h-32 bg-gray-200 mb-2 flex items-center justify-center text-gray-400 text-xs">
+            <img src="/assets/projects/微信图片.png" alt="微信二维码" className="w-full h-full object-cover" />
           </div>
           <span className="text-gray-800 font-mono text-sm bg-gray-50 px-2 py-1 rounded">
             {CONTACT_INFO.wechat}

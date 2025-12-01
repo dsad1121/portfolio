@@ -22,8 +22,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   }, [project.mediaType, project.mediaUrls]);
 
   const renderMedia = () => {
+    const commonClasses = "w-full h-full object-cover transition-transform duration-500 group-hover:scale-105";
+
     if (project.mediaType === 'video') {
-      // 视频直接播放
       return (
         <video
           src={project.thumbnailUrl}
@@ -31,39 +32,37 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           muted
           loop
           playsInline
-          className="w-full h-auto transition-transform duration-500 group-hover:scale-105"
+          className={commonClasses}
         />
       );
-    } else if (project.mediaType === 'image') {
-      // 如果是多张图片，显示轮播
-      if (project.mediaUrls && project.mediaUrls.length > 1) {
-        return (
-          <img
-            src={project.mediaUrls[currentImageIndex]}
-            alt={`${project.title} - ${currentImageIndex + 1}`}
-            loading="lazy"
-            className="w-full h-auto transition-transform duration-500 group-hover:scale-105"
-          />
-        );
-      } else {
-        // 单张图片或GIF
-        const isGif = project.thumbnailUrl.toLowerCase().endsWith('.gif');
-        return (
-          <img
-            src={project.thumbnailUrl}
-            alt={project.title}
-            loading="lazy"
-            className="w-full h-auto transition-transform duration-500 group-hover:scale-105"
-          />
-        );
-      }
+    } 
+    
+    if (project.mediaType === 'image' && project.mediaUrls && project.mediaUrls.length > 1) {
+      return (
+        <img
+          src={project.mediaUrls[currentImageIndex]}
+          alt={`${project.title} - ${currentImageIndex + 1}`}
+          loading="lazy"
+          className={commonClasses}
+        />
+      );
     }
+
+    // 单张图片或GIF
+    return (
+      <img
+        src={project.thumbnailUrl}
+        alt={project.title}
+        loading="lazy"
+        className={commonClasses}
+      />
+    );
   };
 
   return (
     <Link to={`/project/${project.id}`} className="group block break-inside-avoid mb-8">
       <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1">
-        <div className="relative bg-gray-100 overflow-hidden">
+        <div className="relative bg-gray-100 overflow-hidden aspect-[4/3]">
           {renderMedia()}
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
             <span className="text-white text-sm font-medium">查看详情</span>

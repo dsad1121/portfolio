@@ -2,10 +2,8 @@ import React from 'react';
 import { User, Code, Heart } from 'lucide-react';
 
 const SKILLS = [
-  'UI/UX 设计', '视觉设计', '交互设计', 
-  '原型制作', '线框图', '用户研究',
-  'Adobe Photoshop', 'Adobe Illustrator', 'Figma',
-  'After Effects', 'Cinema 4D', 'HTML/CSS'
+  'Adobe XD', 'Adobe Photoshop', 'Adobe After Effects', 'Adobe Premiere Pro',
+  'Web前端', 'Vue.js', 'PHP', 'UI设计', 'MG动画'
 ];
 
 const About: React.FC = () => {
@@ -17,18 +15,17 @@ const About: React.FC = () => {
         <div className="flex flex-col md:flex-row items-center md:items-start gap-8 mb-12">
           <div className="w-32 h-32 md:w-40 md:h-40 flex-shrink-0 bg-gray-200 rounded-full overflow-hidden border-4 border-white shadow-md">
             <img 
-              src="https://picsum.photos/id/64/400/400" 
+              src="/assets/projects/微信图片.png" 
               alt="Profile" 
               className="w-full h-full object-cover"
             />
           </div>
           <div className="text-center md:text-left">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">卢泽雄 设计师</h1>
-            <p className="text-lg text-blue-600 font-medium mb-4">数字产品设计师 & 艺术指导</p>
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">卢泽雄</h1>
+            <p className="text-lg text-blue-600 font-medium mb-4">视觉设计师 & 前端爱好者</p>
             <p className="text-gray-600 leading-relaxed max-w-2xl">
-              我是一名充满激情的设计师，常驻云端。在设计行业拥有超过 5 年的经验，
-              我擅长将复杂的问题简化为直观、优美的界面。
-              我的工作范畴涵盖 UI/UX、品牌设计及动态视觉。
+              我是一名来自广东的大专生，对视觉设计和Web开发充满热情。
+              我喜欢创造美观且实用的东西，并享受将想法变为现实的过程。
             </p>
           </div>
         </div>
@@ -41,12 +38,12 @@ const About: React.FC = () => {
             </h3>
             <div className="text-gray-600 space-y-4 leading-relaxed text-sm sm:text-base">
               <p>
-                我的设计之旅始于传统的平面设计，但我很快便爱上了 Web 的交互特性。
-                我相信优秀的设计不仅仅是关于外观，更在于它是如何运作的。
+                我目前正在学习设计和开发的交叉领域，努力成为一名全能型选手。
+                我相信好的设计能够解决问题，而代码能将设计赋予生命。
               </p>
               <p>
-                我热衷于在协作环境中工作，并乐于通过设计连接技术与艺术。
-                工作之余，我喜欢徒步旅行、摄影，或者尝试一些 3D 艺术创作。
+                虽然我还是一个学生，但我对新技术充满好奇，并乐于接受挑战。
+                我希望通过不断学习和实践，在设计的道路上走得更远。
               </p>
             </div>
           </div>
@@ -71,7 +68,7 @@ const About: React.FC = () => {
               <Heart className="mr-2 text-blue-500" size={20} /> 个人兴趣
             </h3>
             <p className="text-gray-600 text-sm">
-              摄影、排版设计、极简建筑、科幻电影以及咖啡。
+              动漫、游戏、看电影、听音乐。
             </p>
           </div>
         </div>
