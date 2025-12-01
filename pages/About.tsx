@@ -23,7 +23,7 @@ const About: React.FC = () => {
             />
           </div>
           <div className="text-center md:text-left">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Alex 设计师</h1>
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">卢泽雄 设计师</h1>
             <p className="text-lg text-blue-600 font-medium mb-4">数字产品设计师 & 艺术指导</p>
             <p className="text-gray-600 leading-relaxed max-w-2xl">
               我是一名充满激情的设计师，常驻云端。在设计行业拥有超过 5 年的经验，
